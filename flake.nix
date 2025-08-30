@@ -42,7 +42,7 @@
           board = "nice_nano_v2";
           shield = "corne_%PART%";
 
-          zephyrDepsHash = "sha256-79/rYCtUDlC0K4ARO9MSEaCcI1RQSsv7MCeayVZSwtQ=";
+          zephyrDepsHash = "";
 
           meta = {
             description = "ZMK firmware";
@@ -55,8 +55,20 @@
         update = zmk-nix.packages.${system}.update;
       });
 
-      devShells = forAllSystems (system: {
-        default = zmk-nix.devShells.${system}.default;
-      });
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = zmk-nix.devShells.${system}.default.overrideAttrs (oldAttrs: {
+            buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
+              pkgs.python310
+              pkgs.python310Packages.setuptools
+              pkgs.python310Packages.protobuf
+            ];
+          });
+        }
+      );
     };
 }
