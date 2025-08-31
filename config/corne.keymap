@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 / {
@@ -88,7 +87,7 @@
 &kp TAB    &kp Q  &kp W         &kp F         &kp P         &kp B           &kp J     &kp L         &kp U         &kp Y         &kp SEMI  &kp SQT
 &kp ESC    &kp A  &hm LCTRL R   &hm LALT S    &hm LSHFT T   &hm LGUI G      &hm RGUI M &hm RSHFT N  &hm RALT E    &hm RCTRL I   &kp O     &kp BSPC
 &kp LSHFT  &kp X  &kp C         &kp D         &kp V         &kp Z           &kp FSLH  &kp K         &kp H         &kp COMMA     &kp DOT   &kp DEL
-                                &kp LGUI      &kp SPACE     &mo 1           &mo 2     &kp RET      &kp RALT
+                                &kp LGUI      &kp SPACE     &mo 1           &mo 2     &kp RET      &none
             >;
         };
 
@@ -101,9 +100,9 @@
 
             bindings = <
 &kp TAB   &kp TILDE &kp KP_PLUS     &kp KP_MINUS    &kp KP_MULTIPLY  &kp KP_SLASH      &kp DLLR     &kp LT        &kp PIPE       &kp GT        &kp GRAVE  &kp EQUAL
-&kp ESC   &kp N1    &hm LCTRL N2    &hm LALT N3     &hm LSHFT N4     &hm LGUI N5       &hm RGUI N6  &hm RSHFT N7  &hm RALT N8    &hm RCTRL N9  &kp N0     &trans
-&none     &kp UNDER &kp LBKT        &kp LBRC        &kp KP_LPAR      &kp EQUAL         &kp BSLH     &kp RPAR      &kp RBRC       &kp RBKT      &kp AT     &trans
-                                    &mo 3           &kp SPACE        &trans            &mo 4    &trans    &trans
+&kp ESC   &kp N1    &hm LCTRL N2    &hm LALT N3     &hm LSHFT N4     &hm LGUI N5       &hm RGUI N6  &hm RSHFT N7  &hm RALT N8    &hm RCTRL N9  &kp N0     &kp BSPC
+&none     &kp UNDER &kp LBKT        &kp LBRC        &kp KP_LPAR      &kp EQUAL         &kp BSLH     &kp RPAR      &kp RBRC       &kp RBKT      &kp AT     &kp DEL
+                                    &mo 3           &kp SPACE        &trans            &none   &kp RET    &none
             >;
         };
 
@@ -115,10 +114,10 @@
             //                    | GUI | L5  | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp PG_UP  &prev_word   &kp UP &next_word  &none  &none
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &line_start  &line_end   &browser_back    &browser_forward  &none &none
-                             &trans    &trans     &trans       &trans     &kp RET    &none
+&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp PG_UP    &prev_word   &kp UP           &next_word  &none  &none
+&kp LCTRL  &none    &none  &none    &none    &none            &kp PG_DN    &kp LEFT     &kp DOWN         &kp RIGHT  &none  &none
+&kp LSHFT  &none    &none  &none    &none    &none            &line_start  &line_end    &browser_back    &browser_forward  &none &none
+                             &none    &none     &none         &trans       &kp RET      &none
             >;
         };
 
