@@ -99,7 +99,7 @@
 
             bindings = <
 &kp TAB    &kp Q  &kp W         &kp F         &kp P         &kp B           &kp J      &kp L         &kp U         &kp Y         &kp SEMI  &kp SQT
-&kp ESC    &kp A  &hm LCTRL R   &hm LALT S    &hm LSHFT T   &hm LGUI G      &hm RGUI M &hm RSHFT N   &hm RALT E    &hm RCTRL I   &kp O     &kp BSPC
+&kp ESC    &kp A  &hm LCTRL R   &hm LALT S    &hm LSHFT T   &hm LGUI G      &hm LGUI M &hm LSHFT N   &hm LALT E    &hm LCTRL I   &kp O     &kp BSPC
 &kp LSHFT  &kp X  &kp C         &kp D         &kp V         &kp Z           &kp FSLH   &kp K         &kp H         &kp COMMA     &kp DOT   &kp DEL
                                 &mo 3      &lt 1 SPACE    &mo 4             &mo 4     &lt 2 RET     &none
             >;
@@ -114,7 +114,7 @@
 
             bindings = <
 &kp GRAVE &kp TILDE &kp KP_PLUS     &kp KP_MINUS    &kp KP_MULTIPLY  &kp KP_SLASH      &kp DLLR     &kp LT        &kp PIPE       &kp GT        &kp GRAVE  &kp EQUAL
-&none     &kp N1    &hm LCTRL N2    &hm LALT N3     &hm LSHFT N4     &hm LGUI N5       &hm RGUI N6  &hm RSHFT N7  &hm RALT N8    &hm RCTRL N9  &kp N0     &kp BSPC
+&none     &kp N1    &hm LCTRL N2    &hm LALT N3     &hm LSHFT N4     &hm LGUI N5       &hm LGUI N6  &hm LSHFT N7  &hm LALT N8    &hm LCTRL N9  &kp N0     &kp BSPC
 &none     &kp UNDER &kp LBKT        &kp LBRC        &kp KP_LPAR      &kp EQUAL         &kp BSLH     &kp RPAR      &kp RBRC       &kp RBKT      &kp AT     &kp DEL
                                     &mo 3           &kp SPACE        &trans            &none   &kp RET    &none
             >;
@@ -129,7 +129,7 @@
 
             bindings = <
 &none  &kp F10  &kp F9  &kp F8  &kp F7  &kp F6                    &kp PG_UP    &prev_word   &kp UP           &next_word  &none  &none
-&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &kp PG_DN    &kp LEFT     &kp DOWN         &kp RIGHT  &none  &none
+&none  &kp F1  &hm LCTRL F2  &hm LALT F3  &hm LSHFT F4  &hm LGUI F5            &kp PG_DN    &kp LEFT     &kp DOWN         &kp RIGHT  &none  &none
 &none  &none    &none  &none    &none    &none            &line_start  &line_end    &browser_back    &browser_forward  &none &none
                              &none    &none     &none         &trans       &kp RET      &none
             >;
