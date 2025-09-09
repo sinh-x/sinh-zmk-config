@@ -155,7 +155,7 @@
 
             bindings = <
 //        ┌─────┬─────┬───────────────┬─────┬─────┬─────┐           ┌────────────────┬────────────────┬────────────────┬────────────────┬──────┬──────┐
-//        │     │     │               │     │     │     │           │  &msc SCRL_up  │      lclk      │  &mmv MOVE_up  │      rclk      │      │ bri+ │
+//        │     │     │     pscr      │     │     │     │           │  &msc SCRL_up  │      lclk      │  &mmv MOVE_up  │      rclk      │      │ bri+ │
 //        ├─────┼─────┼───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
 //        │     │     │               │     │     │     │           │ &msc SCRL_down │ &mmv MOVE_left │ &mmv MOVE_down │ &mmv MOVE_rght │      │ bri- │
 //        ├─────┼─────┼───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
@@ -163,7 +163,7 @@
 //        └─────┴─────┴───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┴──────┴──────┘
 //                                    │     │     │     │           │                │                │                │
 //                                    └─────┴─────┴─────┘           └────────────────┴────────────────┴────────────────┘
-      &none   &none   &none           &none   &none    &none               &msc SCRL_UP     &mkp LCLK        &mmv MOVE_UP     &mkp RCLK         &none      &kp C_BRI_UP
+      &none   &none   &kp PSCRN       &none   &none    &none               &msc SCRL_UP     &mkp LCLK        &mmv MOVE_UP     &mkp RCLK         &none      &kp C_BRI_UP
       &none   &none   &none           &none   &none    &none               &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &none      &kp C_BRI_DN
       &none   &none   &kp LG(LS(W))   &none   &none    &none               &kp C_VOL_DN     &kp C_VOL_UP     &kp C_PREV       &kp C_NEXT        &kp C_PP   &kp C_MUTE
                                       &none   &trans   &none               &none            &none            &trans
