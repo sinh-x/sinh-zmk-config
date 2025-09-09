@@ -14,21 +14,6 @@
 
 / {
     macros {
-        alt_f1: alt_f1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp F1>, <&macro_release &kp LALT>;
-        };
-        alt_f2: alt_f2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp F2>, <&macro_release &kp LALT>;
-        };
-        alt_f4: alt_f4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp F4>, <&macro_release &kp LALT>;
-        };
         prev_word: prev_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -151,7 +136,7 @@
 
             bindings = <
 //        ┌─────┬─────┬───────────────┬──────────────────┬─────────────┬───────────┐           ┌──────────┬──────────┬──────────┬──────────┬──────────┬─────┐
-//        │     │     │  &prev_word   │        up        │ &next_word  │   pgup    │           │ &alt_f1  │ &alt_f2  │          │          │ &alt_f4  │     │
+//        │     │     │  &prev_word   │        up        │ &next_word  │   pgup    │           │ lalt(f1) │ lalt(f2) │          │          │ lalt(f4) │     │
 //        ├─────┼─────┼───────────────┼──────────────────┼─────────────┼───────────┤           ├──────────┼──────────┼──────────┼──────────┼──────────┼─────┤
 //        │     │     │     left      │       down       │    rght     │   pgdn    │           │          │          │          │          │          │     │
 //        ├─────┼─────┼───────────────┼──────────────────┼─────────────┼───────────┤           ├──────────┼──────────┼──────────┼──────────┼──────────┼─────┤
@@ -159,7 +144,7 @@
 //        └─────┴─────┴───────────────┼──────────────────┼─────────────┼───────────┤           ├──────────┼──────────┼──────────┼──────────┴──────────┴─────┘
 //                                    │                  │             │           │           │          │          │          │
 //                                    └──────────────────┴─────────────┴───────────┘           └──────────┴──────────┴──────────┘
-      &none   &none   &prev_word      &kp UP             &next_word    &kp PG_UP               &alt_f1        &alt_f2        &none          &none          &alt_f4        &none
+      &none   &none   &prev_word      &kp UP             &next_word    &kp PG_UP               &kp LALT(F1)   &kp LALT(F2)   &none          &none          &kp LALT(F4)   &none
       &none   &none   &kp LEFT        &kp DOWN           &kp RIGHT     &kp PG_DN               &none          &none          &none          &none          &none          &none
       &none   &none   &browser_back   &browser_forward   &line_start   &line_end               &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0   &none
                                       &trans             &none         &none                   &none          &none          &none
@@ -169,19 +154,19 @@
         media_layer {
 
             bindings = <
-//        ┌─────┬─────┬─────┬─────┬─────┬─────┐           ┌────────────────┬────────────────┬────────────────┬────────────────┬──────┬──────┐
-//        │     │     │     │     │     │     │           │  &msc SCRL_up  │      lclk      │  &mmv MOVE_up  │      rclk      │      │ bri+ │
-//        ├─────┼─────┼─────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
-//        │     │     │     │     │     │     │           │ &msc SCRL_down │ &mmv MOVE_left │ &mmv MOVE_down │ &mmv MOVE_rght │      │ bri- │
-//        ├─────┼─────┼─────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
-//        │     │     │     │     │     │     │           │      vold      │      volu      │      prev      │      next      │ play │ mute │
-//        └─────┴─────┴─────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┴──────┴──────┘
-//                          │     │     │     │           │                │                │                │
-//                          └─────┴─────┴─────┘           └────────────────┴────────────────┴────────────────┘
-      &none   &none   &none   &none   &none    &none               &msc SCRL_UP     &mkp LCLK        &mmv MOVE_UP     &mkp RCLK         &none      &kp C_BRI_UP
-      &none   &none   &none   &none   &none    &none               &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &none      &kp C_BRI_DN
-      &none   &none   &none   &none   &none    &none               &kp C_VOL_DN     &kp C_VOL_UP     &kp C_PREV       &kp C_NEXT        &kp C_PP   &kp C_MUTE
-                              &none   &trans   &none               &none            &none            &trans
+//        ┌─────┬─────┬───────────────┬─────┬─────┬─────┐           ┌────────────────┬────────────────┬────────────────┬────────────────┬──────┬──────┐
+//        │     │     │               │     │     │     │           │  &msc SCRL_up  │      lclk      │  &mmv MOVE_up  │      rclk      │      │ bri+ │
+//        ├─────┼─────┼───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
+//        │     │     │               │     │     │     │           │ &msc SCRL_down │ &mmv MOVE_left │ &mmv MOVE_down │ &mmv MOVE_rght │      │ bri- │
+//        ├─────┼─────┼───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┼──────┼──────┤
+//        │     │     │ lgui(lsft(W)) │     │     │     │           │      vold      │      volu      │      prev      │      next      │ play │ mute │
+//        └─────┴─────┴───────────────┼─────┼─────┼─────┤           ├────────────────┼────────────────┼────────────────┼────────────────┴──────┴──────┘
+//                                    │     │     │     │           │                │                │                │
+//                                    └─────┴─────┴─────┘           └────────────────┴────────────────┴────────────────┘
+      &none   &none   &none           &none   &none    &none               &msc SCRL_UP     &mkp LCLK        &mmv MOVE_UP     &mkp RCLK         &none      &kp C_BRI_UP
+      &none   &none   &none           &none   &none    &none               &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &none      &kp C_BRI_DN
+      &none   &none   &kp LG(LS(W))   &none   &none    &none               &kp C_VOL_DN     &kp C_VOL_UP     &kp C_PREV       &kp C_NEXT        &kp C_PP   &kp C_MUTE
+                                      &none   &trans   &none               &none            &none            &trans
           >;
       };
     };
