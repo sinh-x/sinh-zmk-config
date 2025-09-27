@@ -17,9 +17,11 @@
         prev_word: prev_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>
-                     , <&macro_tap &kp LEFT>
-                     , <&macro_release &kp LCTRL>;
+            bindings = <&macro_press &kp LGUI>
+                     , <&macro_pressp &kp LSHFT>
+                     , <&macro_tap &kp W>
+                     , <&macro_release &kp LGUI>;
+                     , <&macro_release &kp LSHFT>;
         };
 
         next_word: next_word {
@@ -62,14 +64,7 @@
     };
 
     behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
+
     };
 
     keymap {
@@ -79,7 +74,7 @@
 
             bindings = <
 //        ┌──────┬───┬────────────┬────────────┬────────────┬────────────┐           ┌────────────┬──────────────┬────────────┬────────────┬───┬──────┐
-//        │ tab  │ Q │     W      │     F      │     P      │     B      │           │     J      │      L       │     U      │     Y      │ ; │  '   │
+//        │ tab  │ Q │     W      │     F      │     P      │     C      │           │     J      │      L       │     U      │     Y      │ ; │  '   │
 //        ├──────┼───┼────────────┼────────────┼────────────┼────────────┤           ├────────────┼──────────────┼────────────┼────────────┼───┼──────┤
 //        │ esc  │ A │ &hm lctl R │ &hm lalt S │ &hm lsft T │ &hm lgui G │           │ &hm lgui M │  &hm lsft N  │ &hm lalt E │ &hm lctl I │ O │ bspc │
 //        ├──────┼───┼────────────┼────────────┼────────────┼────────────┤           ├────────────┼──────────────┼────────────┼────────────┼───┼──────┤
@@ -87,7 +82,7 @@
 //        └──────┴───┴────────────┼────────────┼────────────┼────────────┤           ├────────────┼──────────────┼────────────┼────────────┴───┴──────┘
 //                                │    mo 3    │  lt 4 spc  │    mo 1    │           │    mo 2    │ &hm lsft ent │    mo 4    │
 //                                └────────────┴────────────┴────────────┘           └────────────┴──────────────┴────────────┘
-      &kp TAB     &kp Q   &kp W         &kp F        &kp P         &kp B                    &kp J        &kp L           &kp U        &kp Y         &kp SEMI   &kp SQT
+      &kp TAB     &kp Q   &kp W         &kp F        &kp P         &kp C                    &kp J        &kp L           &kp U        &kp Y         &kp SEMI   &kp SQT
       &kp ESC     &kp A   &hm LCTRL R   &hm LALT S   &hm LSHFT T   &hm LGUI G               &hm LGUI M   &hm LSHFT N     &hm LALT E   &hm LCTRL I   &kp O      &kp BSPC
       &kp LSHFT   &kp X   &kp C         &kp D        &kp V         &kp Z                    &kp FSLH     &kp K           &kp H        &kp COMMA     &kp DOT    &kp DEL
                                         &mo 3        &lt 4 SPACE   &mo 1                    &mo 2        &hm LSHFT RET   &mo 4
