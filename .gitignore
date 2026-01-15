@@ -3,6 +3,7 @@
 /zephyr
 /zmk
 /build
+/output
 
 # Devenv
 .devenv*
